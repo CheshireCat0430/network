@@ -1,0 +1,58 @@
+README 
+
+                                                  Jaehoon Jeong, November 03, 2020.
+
+* What is in this directory? 
+
+  README             this file
+  host.c             contains source code of host program
+  hub.c              contains source code of hub program
+  router.c           contains source code of router program
+  utils.c            utilities used by all the programs
+  common.h           common macros and function prototypes
+  dist-vec.h         header file for distance vector routing protocol
+  dist-vec.c         functions for handling distance vector routing protocol
+  Makefile.template  template file for generating a Makefile with 'Configure' shell script
+                     according to the operating system, such as Linux and SunOS
+
+  host               host executable in Linux
+  hub                hub executable in Linux
+  router             router executable in Linux
+
+  ip-addr.conf       configuration file for the IP address assignment for hubs, routers, and hosts
+  mac-addr.conf      configuration file for the MAC address assignment for routers and hosts
+  gateway.conf       configuration file for configuring default gateway at hosts
+  
+
+* What do we have to do?
+
+  You have to design and implement the router program with router.c and dist-vec.h. 
+  You don't have to touch any other files related to host and hub programs. The template files provide
+  you with ARP, DNS functions as well as IP/Ethernet Packet Encapsulation and Decapsulation.
+  If you find some bug in host or hub program, let the TA (Bien Aime Mugabarigira, bienaime@skku.edu) know it.
+
+* How do i compile my programs? 
+
+  The 'Makefile.template' is provided just for that purpose. To compile, run
+
+    % Configure
+    % make
+
+  It will create 'host', 'hub' and 'router'. 
+
+* How do i run and test my programs? 
+
+  The configuration files conform to the description for Project II.
+  You can refer to the document for the commands for each program.
+
+  Our 'host' can be safely executed with './host' since 'host' without prefix './'
+  can call the system command 'host', not our 'host'.
+
+  - Example: Single LAN Scenario
+    % hub lan1
+    % ./host mercury lan1 router1
+    % ./host deci lan1 router1
+
+* How do i exit from these programs? 
+
+  You can type Ctrl-C to kill any of the programs. 

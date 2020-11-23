@@ -1,0 +1,12 @@
+#!/bin/sh
+OS=`uname`
+echo $OS
+
+rm -f Makefile
+
+if test $OS = "Linux"
+then
+	(echo "LIB = "; cat Makefile.template) > Makefile
+else
+	(echo "LIB = -lnsl -lsocket"; cat Makefile.template) > Makefile
+fi

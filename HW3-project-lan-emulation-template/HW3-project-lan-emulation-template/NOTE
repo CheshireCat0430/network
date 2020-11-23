@@ -1,0 +1,6 @@
+Note for running binary
+                                   Jaehoon Jeong, pauljeong@skku.edu
+                                   Date: November 03, 2020
+
+1. run "host" with "./host"
+   if you run "host" without "./", another "host" program is executed.

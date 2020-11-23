@@ -1,0 +1,35 @@
+LIB = 
+
+CC = gcc
+CFLAGS1 = -o $@ -g -D_DEBUG -c
+CFLAGS2 = -o $@ -g -D_DEBUG $(LIB)
+
+all: hub host router
+
+hub: hub.o utils.o dist-vec.o
+	gcc $(CFLAGS2) hub.o utils.o dist-vec.o
+
+host: host.o utils.o dist-vec.o
+	gcc $(CFLAGS2) host.o utils.o dist-vec.o
+
+router: router.o utils.o dist-vec.o
+	gcc $(CFLAGS2) router.o utils.o dist-vec.o
+
+hub.o: hub.c
+	gcc $(CFLAGS1) hub.c
+
+host.o: host.c
+	gcc $(CFLAGS1) host.c
+
+router.o: router.c
+	gcc $(CFLAGS1) router.c
+
+utils.o: utils.c
+	gcc $(CFLAGS1) utils.c
+
+dist-vec.o: dist-vec.c
+	gcc $(CFLAGS1) dist-vec.c
+
+clean:
+	rm -f .lan* *.o hub host router
+
